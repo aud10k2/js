@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Демо window.scrollTo()</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+		}
+
+		section {
+			height: 100vh;
+			padding: 20px;
+		}
+
+		/* Разделы на весь экран */
+		#section1 {
+			background-color: #ffe4e1;
+		}
+
+		#section2 {
+			background-color: #e6e6fa;
+		}
+
+		#section3 {
+			background-color: #f0fff0;
+		}
+
+		/* Стили для навигации */
+		nav {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			background: white;
+			padding: 15px;
+
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+
+		button {
+			display: block;
+			margin: 10px 0;
+			padding: 10px;
+			cursor: pointer;
+		}
+
+		/* Стили для кнопки "Наверх" */
+		#topBtn {
+			position: fixed;
+			bottom: 30px;
+			right: 30px;
+			padding: 15px;
+			background: #333;
+			color: white;
+			border: none;
+			border-radius: 50%;
+			cursor: pointer;
+			opacity: 0;
+			/* Сначала скрыта */
+			transition: opacity 0.3s;
+		}
+
+		#topBtn.show {
+			opacity: 1;
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- Навигационное меню -->
+	<nav>
+		<button onclick="scrollToSection('section1')">Раздел 1</button>
+		<button onclick="scrollToSection('section2')">Раздел 2</button>
+		<button onclick="scrollToSection('section3')">Раздел 3</button>
+	</nav>
+
+	<!-- Контент для прокрутки -->
+	<section id="section1">
+		<h1>Раздел 1</h1>
+
+	</section>
+
+	<section id="section2">
+		<h1>Раздел 2</h1>
+
+	</section>
+
+	<section id="section3">
+		<h1>Раздел 3</h1>
+
+	</section>
+
+	<!-- Кнопка "Наверх" -->
+	<button id="topBtn" onclick="scrollToTop()">↑</button>
+
+	<script src="script.js"></script> <!-- Подключим наш JS -->
+</body>
+
+</html>
