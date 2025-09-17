@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Сумма двух чисел</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 40px;
+		}
+
+		label,
+		input {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		#result {
+			margin-top: 15px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>Введите два числа</h2>
+	<form name="SumForm">
+		<label for="num1">Число 1:</label>
+		<input type="number" name="num1">
+
+		<label for="num2">Число 2:</label>
+		<input type="number" name="num2">
+
+		<label for="result">Результат:</label>
+		<input type="number" name="result">
+
+		<!--По индексу-->
+		<!--<button type="button" onclick="document.forms[0], elements[2].value =
+		parseInt(document.forms[0].elements[0].value)+ parseInt(document.forms[0].elements[1].value)">Вычислить
+			сумму</button> -->
+
+		<!--По имени объекта-->
+		<button type="button" onclick="document.SumForm, result.value =
+		parseInt(document.SumForm.num1.value)+ parseInt(document.SumForm.num2.value)">Вычислить
+			сумму</button>
+	</form>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	function calculateSum() {
+		const form = document.forms["sumForm"];
+
+		// Доступ через имя объекта
+		const a = parseFloat(form.num1.value);
+		const b = parseFloat(form.num2.value);
+
+		// Доступ через индекс в коллекции
+		// form[0] — num1, form[1] — num2
+		const aIndex = parseFloat(form[0].value);
+		const bIndex = parseFloat(form[1].value);
+		const sum = a + b;
+		const sumIndex = aIndex + bIndex;
+
+		document.getElementById("result").textContent =
+			`Сумма (по имени): ${sum}, Сумма (по индексу): ${sumIndex}`;
+	}
+</script>
+</body>
+
+</html>
