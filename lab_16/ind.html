@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Счетчик</title>
+	<style>
+		body {
+			text-align: center;
+			padding: 100px;
+			font-size: 30px;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>Счетчик кликов</h2>
+	<div id="counter">0</div>
+	<button onclick="increment()">+1</button>
+	<button onclick="decrement()">-1</button>
+	<button onclick="reset()">Сброс</button>
+
+	<script>
+		let count = 0;
+
+		function increment() {
+			count++;
+			document.getElementById('counter').textContent = count;
+		}
+
+		function decrement() {
+			count--;
+			document.getElementById('counter').textContent = count;
+		}
+
+		function reset() {
+			count = 0;
+			document.getElementById('counter').textContent = count;
+		}
+	</script>
+</body>
+
+</html>
