@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Изменение стилей</title>
+	<style>
+		#myBox {
+			position: absolute;
+			left: 50px;
+			top: 50px;
+			width: 150px;
+			height: 100px;
+			background-color: lightblue;
+			font-size: 16px;
+			text-align: center;
+			line-height: 100px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div id="myBox">Привет!</div>
+	<button onclick="changeStyles()">Изменить стили</button>
+
+	<script>
+		function changeStyles() {
+			const box = document.getElementById('myBox');
+			box.style.left = '400px';
+			box.style.top = '150px';
+			box.style.width = '300px';
+			box.style.height = '300px';
+			box.style.fontSize = '24px';
+			box.style.backgroundColor = 'lightgreen';
+
+		}
+
+	</script>
+
+</body>
+
+</html>

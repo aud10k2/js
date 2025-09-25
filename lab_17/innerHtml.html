@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Эксперименты с DOM</title>
+	<style>
+		#demo {
+			position: relative;
+			width: 200px;
+			height: 50px;
+			background-color: lightgray;
+			font-size: 18px;
+			text-align: center;
+			line-height: 50px;
+			transition: all 0.5s ease;
+			margin-bottom: 10px;
+		}
+
+		body {
+			transition: background-color 1s ease;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h2>innerHTML + Стили + Анимация</h2>
+
+	<p id="demo">Кнопка не нажата</p>
+	<button type="button" onclick="myFunction()">Нажать</button>
+
+
+	<script>
+		function myFunction() {
+			const demo = document.getElementById("demo");
+			const sound = document.getElementById("clickSound");
+
+			demo.innerHTML = "✅ Активировано!";
+			document.body.style.backgroundColor = "aqua";
+
+			demo.style.width = "300px";
+			demo.style.height = "70px";
+			demo.style.fontSize = "24px";
+			demo.style.left = "20px";
+			demo.style.backgroundColor = "lightgreen";
+
+			sound.play();
+
+			// Сброс через 5 секунд
+			setTimeout(() => {
+				demo.innerHTML = "Кнопка не нажата";
+				document.body.style.backgroundColor = "white";
+				demo.style.width = "200px";
+				demo.style.height = "50px";
+				demo.style.fontSize = "18px";
+				demo.style.backgroundColor = "lightgray";
+			}, 5000);
+		}
+	</script>
+
+</body>
+
+</html>
