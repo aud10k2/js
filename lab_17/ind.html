@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Простой пример работы с DOM</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			max-width: 600px;
+			margin: 50px auto;
+			padding: 20px;
+		}
+
+		.item {
+			background: #f0f8ff;
+			padding: 10px;
+			margin: 10px 0;
+			border: 1px solid #3498db;
+			border-radius: 5px;
+		}
+
+		button {
+			padding: 8px 15px;
+			margin: 5px;
+			background: #3498db;
+			color: white;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+
+		.highlight {
+			background: yellow;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Просример работы с DOM</h1>
+
+	<div class="container">
+		<div class="item">Элемент 1</div>
+		<div class="item special">Элемент 2 (особый)</div>
+		<div class="item">Элемент 3</div>
+	</div>
+
+	<button onclick="showClosest()">closest() - найти родителя</button>
+	<button onclick="showMatches()">matches() - проверить элемент</button>
+	<button onclick="addNewElement()">insertAdjacentHTML() - добавить элемент</button>
+
+	<script>
+		function showClosest() {
+
+			const specialItem = document.querySelector('.special');
+			// Ищем ближайшего родителя с классом "container"
+			const container = specialItem.closest('.container');
+			container.style.border = '2px solid red';
+			alert('closest() нашел родительский контейнер');
+		}
+
+		function showMatches() {
+			const items = document.querySelectorAll('.item');
+			items.forEach(item => {
+				if (item.matches('.special')) {
+					// Подсвечиваем подходящий элемент
+					item.classList.add('highlight');
+					alert('matches() нашел элемент с классом "special"');
+				}
+			});
+		}
+
+		function addNewElement() {
+			const container = document.querySelector('.container');
+			container.insertAdjacentHTML('beforeend', '<div class="item">Новый элемент</div>');
+			alert('Добавлен новый элемент!');
+		}
+	</script>
+</body>
+
+</html>
